@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const burgerMenu = document.getElementById('burger-menu');
-    const navLinks = document.getElementById('nav-links');
-    burgerMenu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-});
-
-// ========================================================================================================================================================================
-
-document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const options = {
         root: null,
@@ -38,8 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ========================================================================================================================================================================
-
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(event) {
@@ -51,5 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }, function(error) {
                 alert('FAILED... Please try again.', error);
             });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const kuromiImage = document.getElementById('kuromi-click');
+    const modal = document.getElementById('social-modal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    kuromiImage.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 });

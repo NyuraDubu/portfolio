@@ -1,16 +1,13 @@
 let grid = [];
 let gridSize = 10;
-let mineCount = 10; // Reduced number of mines
+let mineCount = 10;
 let gameOver = false;
 
-// Function to create the Minesweeper grid
 function createDeminierGrid() {
     const gameContainer = document.getElementById('deminerGame');
     gameContainer.innerHTML = '';
     grid = [];
     gameOver = false;
-
-    // Initialize the grid
     for (let row = 0; row < gridSize; row++) {
         grid[row] = [];
         for (let col = 0; col < gridSize; col++) {
@@ -23,8 +20,6 @@ function createDeminierGrid() {
             grid[row][col] = { isMine: false, revealed: false, element: cell };
         }
     }
-
-    // Place mines
     let placedMines = 0;
     while (placedMines < mineCount) {
         let row = Math.floor(Math.random() * gridSize);
@@ -36,7 +31,6 @@ function createDeminierGrid() {
     }
 }
 
-// Function to reveal a cell
 function revealCell(event) {
     if (gameOver) return;
     const row = event.target.getAttribute('data-row');
@@ -58,12 +52,11 @@ function revealCell(event) {
         if (mineCount > 0) {
             cell.element.textContent = mineCount;
         } else {
-            revealAdjacentCells(row, col); // No adjacent mines, reveal more cells
+            revealAdjacentCells(row, col);
         }
     }
 }
 
-// Function to count adjacent mines around a cell
 function countAdjacentMines(row, col) {
     let mineCount = 0;
     for (let r = -1; r <= 1; r++) {
@@ -80,7 +73,6 @@ function countAdjacentMines(row, col) {
     return mineCount;
 }
 
-// Function to reveal adjacent cells recursively if there are no mines nearby
 function revealAdjacentCells(row, col) {
     for (let r = -1; r <= 1; r++) {
         for (let c = -1; c <= 1; c++) {
@@ -93,7 +85,6 @@ function revealAdjacentCells(row, col) {
     }
 }
 
-// Function to reveal all mines when the game is over
 function revealAllMines() {
     for (let row = 0; row < gridSize; row++) {
         for (let col = 0; col < gridSize; col++) {
@@ -104,13 +95,11 @@ function revealAllMines() {
     }
 }
 
-// Function to open the Deminer game
 function openDeminierGame() {
     document.getElementById('deminerGameContainer').style.visibility = 'visible';
     createDeminierGrid();
 }
 
-// Function to close the Deminer game
 function closeDeminierGame() {
     document.getElementById('deminerGameContainer').style.visibility = 'hidden';
 }
