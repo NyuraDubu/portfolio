@@ -1,0 +1,477 @@
+@font-face {
+    font-family: 'Playwrite Deutschland Grundschrift';
+    src: url('fonts/playwrite-deutschland-grundschrift.woff2') format('woff2'),
+         url('fonts/playwrite-deutschland-grundschrift.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+header {
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+.ornament-image {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -10px;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    margin-top: 0;
+    color: #fff; /* Set your base text color */
+    text-shadow: 0 0 5px #fff, /* Base glow */
+                 0 0 10px #fff, 
+                 0 0 15px #000000, /* Primary glow color */
+                 0 0 20px #000000, 
+                 0 0 30px #000000, 
+                 0 0 40px #000000;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff, 
+                     0 0 15px #7400c1,
+                     0 0 20px #7400c1, 
+                     0 0 30px #7400c1, 
+                     0 0 40px #7400c1;
+    }
+    100% {
+        text-shadow: 0 0 10px #fff, 
+                     0 0 20px #000000, 
+                     0 0 30px #000000, 
+                     0 0 40px #000000, 
+                     0 0 50px #000000,
+                     0 0 60px #000000;
+    }
+}
+
+/* ========================================================================================================================================================================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #000000, #757575, #7c00db);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+}
+
+.about-box {
+    background-color: #333;
+    color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ========================================================================================================================================================================== */
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================================================================================================================================================== */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ========================================================================================================================================================================== */
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+section {
+    margin: 100px 0;
+    padding-top: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    min-height: 100px;
+}
+
+.slide-in-left {
+    animation: slide-in-left 0.7s forwards;
+}
+
+.slide-in-right {
+    animation: slide-in-right 0.7s forwards;
+}
+
+/* ========================================================================================================================================================================== */
+
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#skills ul li {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid layout */
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center; /* Center the text under the icons */
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.8); /* Background for each skill item */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item img {
+    width: 60px; /* Size of the icons */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.skill-item p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: white;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px); /* Lift the item slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* ========================================================================================================================================================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project {
+    background: #333;
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.project img.project-image {
+    width: 100%; /* Full width of the project box */
+    max-height: 200px; /* Limit the height to prevent oversized images */
+    object-fit: cover; /* Ensure the image covers the space without distortion */
+    border-radius: 10px; /* Match the rounded corners of the project box */
+    margin-bottom: 15px; /* Space between image and title */
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 1rem;
+    color: white;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================================================================================================================================================== */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* ========================================================================================================================================================================== */
+
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.burger-menu img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+}
+
+/* ========================================================================================================================================================================== */
+
+.linkedin-icon img {
+    vertical-align: middle;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.linkedin-icon img:hover {
+    transform: scale(1.1);
+}
+
+/* ========================================================================================================================================================================== */
+
+.bottom-left-image {
+    position: fixed; /* Fixed position to stay at the bottom-left even when scrolling */
+    bottom: 0;
+    left: 0;
+    z-index: 10; /* Ensures it stays on top of other content */
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
+    margin: 10px; /* Optional: add some margin around the image */
+}
+
+/* You can also customize the image for different screen sizes */
+@media (max-width: 768px) {
+    .bottom-left-image {
+        display: none; /* Hide Kuromi image on smaller screens */
+    }
+}
+
+/* ========================================================================================================================================================================== */
+
+.contact-form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* ========================================================================================================================================================================== */
+
+.github-link {
+    display: inline-block;
+}
+
+.github-icon {
+    width: 100px; /* Size of the GitHub icon */
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+    margin-bottom: 0px;
+    margin-top: 1px;
+}
+
+.github-link:hover .github-icon {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.project {
+    text-align: center; /* Center content */
+}
+
+/* ========================================================================================================================================================================== */
+
+.open-game-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.deminer-game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.deminer-game {
+    display: grid;
+    grid-template-columns: repeat(10, 40px); /* 10x10 grid */
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: #bbb;
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cell.mine {
+    background-color: red;
+}
+
+.cell.revealed {
+    background-color: #eee;
+    cursor: default;
+}
+
+.close-game {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.close-game:hover {
+    background-color: #ccc;
+}
